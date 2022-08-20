@@ -1,7 +1,7 @@
 
 function setLoginID(id) {
-  //localStorage.setItem("loginID", id);
-  window.location = "index_2.html"
+  localStorage.setItem("loginID", id);
+  window.location = "https://marianobv.github.io/Parte-2/index_2.html"
 }
 
 

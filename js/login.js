@@ -1,4 +1,10 @@
 
+function setCatID(id) {
+  localStorage.setItem("catID", id);
+  window.location = "products.html"
+}
+
+
 //1. Declaro campos vacíos
 function emptyfield (){
     let fields = document.getElementsByTagName("input")

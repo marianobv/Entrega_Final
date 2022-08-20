@@ -1,7 +1,7 @@
 
 function setCatID(id) {
   localStorage.setItem("catID", id);
-  window.location = "products.html"
+  window.location = "categories.html"
 }
 
 

@@ -1,7 +1,7 @@
 
 function setLoginID(id) {
   localStorage.setItem("loginID", id);
-  window.location = "categories.html"
+  window.location = "index_2.html"
 }
 
 

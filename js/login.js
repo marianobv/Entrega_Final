@@ -1,6 +1,6 @@
 
 function setLoginID(id) {
-  localStorage.setItem("loginID", id);
+  //localStorage.setItem("loginID", id);
   window.location = "index_2.html"
 }
 

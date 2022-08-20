@@ -20,7 +20,7 @@ function showProducts(){
     let htmlContentToAppend = "";
     for(let i = 0; i < currentAutosArray.length; i++){
         let product = currentAutosArray[i];
-        console.log(product)
+        //console.log(product)
             htmlContentToAppend += `
             <div onclick="setProdID(${product.id})" class="list-group-item list-group-item-action cursor-active">
                 <div class="row">
@@ -39,7 +39,7 @@ function showProducts(){
             `
         }
         let product_name=currentProductsArray.catName;
-        console.log(product_name)
+        //console.log(product_name)
         //console.log(product_name);
         //genero variable para introducir título
         //comilla invertida para que dirija al html
@@ -59,9 +59,9 @@ document.addEventListener("DOMContentLoaded", function(e){
     getJSONData(CAR_PRODUCTS_URL).then(function(resultObj){
         if (resultObj.status === "ok"){
             currentProductsArray = resultObj.data
-            console.log(currentProductsArray)
+            //console.log(currentProductsArray)
             currentAutosArray = currentProductsArray.products
-            console.log(currentAutosArray)
+            //console.log(currentAutosArray)
             showProducts();
         }
     })})

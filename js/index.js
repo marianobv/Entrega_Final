@@ -12,3 +12,8 @@ document.addEventListener("DOMContentLoaded", function(){
         window.location = "products.html"
     });
 });
+
+let var_user_menu = document.getElementById("menu_user_2")
+let get_ls = localStorage.getItem("text");
+console.log(get_ls)
+var_user_menu.innerHTML += get_ls

@@ -9,17 +9,22 @@
   <link href="css/bootstrap.min.css" rel="stylesheet">
   <link href="css/font-awesome.min.css" rel="stylesheet">
   <link href="css/styles.css" rel="stylesheet">
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
 </head>
 
 <body>
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark p-1">
-    <div class="container">
+    <div class="container" id="contenedor">
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
         aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav w-100 justify-content-between">
+        <ul class="navbar-nav w-100 justify-content-between" id="menu_gral">
           <li class="nav-item">
             <a class="nav-link" href="index.html">Inicio</a>
           </li>
@@ -30,18 +35,306 @@
             <a class="nav-link" href="sell.html">Vender</a>
           </li>
           <li class="nav-item">
+            <div class="nav-link" id="nav1link"></div>
+           <div class="dropdown">
+              <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+             <label id="menu_user_2"></label>
+              </button>
+               <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                <li><a class="dropdown-item" href="cart.html">Mi Carrito</a></li>
+                <li><a class="dropdown-item" href="my-profile.html">Mi Perfil</a></li>
+                <li><a class="dropdown-item" href="index.html">Cerrar Sesión</a></li>
+              </ul>
+            </div>
           </li>
         </ul>
       </div>
     </div>
   </nav>
   <main>
+
+
     <div class="container">
-      <div class="alert alert-danger text-center" role="alert">
+      <!-- <div class="alert alert-danger text-center" role="alert">
         <h4 class="alert-heading">Funcionalidad en desarrollo</h4>
+      </div> -->
+      
+      <div class="container1">
+      <br>
+      <br>
+
+                <h3 id="cart_title">Carrito de Compras</h3>
+                <br>
+
+                <h5 class="cart_title_2">Artículos a comprar</h5>
+                <br>
+
+                <table>
+                <tr id="head1">
+                <th></th>
+                <th>Nombre</th>
+                <th>Costo</th>
+                <th>Cantidad</th>
+                <th>Subtotal</th>
+                </tr>
+       
+                <tr id="insert_tr">  
+                </tr>
+               </table>
+
+
+                <table id="second_table">
+                  <tr>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    </tr>
+                </table>
+
+                <br>
+                <br>
+
+      <h5 class="cart_title_2" id="deliver_type">Tipo de envío</h5>
+      <div id="invalidCheckFeedback" class="invalid-feedback">Debe seleccionar un tipo de envío</div>
+      <div>
+        <input type="radio" id="deliver1" name="deliver" value="0.15" oninput="deliverCost()" oninput="validadeliver()">
+        <label for="deliver1"><span id="e1">Premium 2 a 5 días (15%)</span></label>
       </div>
+  
+      <div>
+        <input type="radio" id="deliver2" name="deliver" value="0.07" oninput="deliverCost()" oninput="validadeliver()">
+        <label for="deliver2"><span id="e2">Express 5 a 6 días (7%)</span></label>
+      </div>
+  
+      <div>
+        <input type="radio" id="deliver3" name="deliver" value="0.05" oninput="deliverCost()" oninput="validadeliver()">
+        <label for="deliver3"><span id="e3">Standard 12 a 15 días (5%)</span></label>
+      </div>
+      <br>
+
+
+      <h5 class="cart_title_2">Dirección de envío</h5>
+     
+      <table>
+
+      <tr>
+      <th><label>Calle</label></th>
+      <th><label>Número</label></th>
+      </tr>
+
+      <tr>
+        <td><input maxlength="10" style="margin-right: 10px" id="street" class="form-control"><div class="invalid-feedback">
+          Por favor, ingrese su Calle
+        </div></td>
+        <td><input maxlength="10" id="number"class="form-control"><div class="invalid-feedback">
+          Por favor, ingrese su Número
+        </div></td>
+      </tr>
+
+
+      <tr>
+        <td><label><strong>Esquina</strong></label></td>
+        <td></td>
+      </tr>
+
+      <tr>
+        <td><input maxlength="10" id="corner" class="form-control"><div class="invalid-feedback">
+          Por favor, ingrese su Esquina
+        </div></td>
+        <td></td>
+      </tr>
+
+
+      </table>
+      
+      <br>
+      <h5 class="cart_title_2">Costos</h5>
+      <br>
+      <table id="total_cost">
+
+        <tr>
+        <th></th>
+        <th>col1</th>
+        </tr>
+  
+        <tr class="tr_new_element_quantity">
+          <td>
+          <strong>Subtotal</strong>
+            <br>
+          Costo unitario del poducto por cantidad
+          </td>
+        <td id="row1"></td>
+        </tr>
+  
+        <tr class="tr_new_element_quantity">
+          <td>
+          <strong>Costo de envío </strong>
+          <br>
+          Según el tipo de envío
+          </td>
+          <td id="row2"></td>
+        </tr>
+
+        <tr class="tr_new_element_quantity">
+          <td>
+          <strong>Total ($)</strong>
+          </td>
+          <td id="row3"><strong></strong></td>
+        </tr>
+  
+        </table>
+
+        <br>
+    <h5 class="cart_title_2">Forma de Pago</h5>
+    <br>
+    
+
+   
+
+    <div class="container">
+
+    <div id="no_selection">
+    <label>No ha seleccionado</label>
     </div>
+    <button type="button" class="btn btn-link ps-0" data-toggle="modal" data-target="#myModal" id="select">Seleccionar</button>
+    <div id="invalidCheckFeedback" class="invalid-feedback">
+      Debe seleccionar una forma de pago 
+    </div>
+    <div id="validCheckFeedback" class="valid-feedback">
+      Forma de pago seleccionada correctamente ✓
+    </div>
+
+    <div id="container_alerts">
+
+    <div id="deliver_exito"></div>
+
+    <div id="confirm_pay"></div>
+    
+    <div id="validate"></div>
+
+    </div>
+  
+
+    <div class="form-group" style="width: 655px;">
+      <button type="submit" class="btn btn-primary btn-block" id="end_buying">
+        Finalizar Compra</button>       
+     </div> 
+
+     <div id="exito"></div>
+     
+  
+  
+    <!-- Modal -->
+    <div class="modal fade" id="myModal" role="dialog">
+      <div class="modal-dialog">
+      
+        <!-- Modal content-->
+        <div class="modal-content">
+          
+          <div class="modal-body">
+            <form action="#" method="get" class="row mt-4">
+              <div class="col">
+                <h4 class="mb-3"><strong>Forma de pago</strong></h4>
+                <hr class="my-4">
+                <div class="row g-3">
+
+                  <div class="col-6">
+                    <input type="radio" id="tarjeta_radio" name="opcion"> <label>Tarjeta de crédito</label>
+                  </div>
+
+                  <hr>
+
+                  <div class="col-sm-6">
+                    <label for="tarjeta" class="form-label">Número de tarjeta</label>
+                    <input type="text" class="form-control" id="tarjeta" style="width: 180px;" required>
+                    <div class="invalid-feedback">
+                      Por favor, ingrese su número de tarjeta
+                    </div>
+                  </div>
+                  
+                  <div class="col-sm-6">
+                    <label for="codseg" class="form-label">Código de seg.</label>
+                    <input type="text" class="form-control" id="codseg" style="width: 120px;">
+                    <div class="invalid-feedback">
+                      Por favor, ingrese su código de seguridad
+                    </div>
+                  </div>
+      
+                  <div class="col-12">
+                    <label for="vencimiento" class="form-label">Vencimiento (MM/AA)</label>
+                    <input type="text" class="form-control" id="vencimiento" style="width: 180px;">
+                    <div class="invalid-feedback">
+                      Por favor, elije fecha de vencimiento
+                    </div>
+                  </div>
+      
+                  <div class="col-12">
+                  <input type="radio" name="opcion" id="transf_radio"> <label>Transferencia Bancaria</label>
+                </div>
+      
+                <hr>
+      
+                  <div class="col-12">
+                    <label for="nrocuenta" class="form-label" >Número de cuenta</label>
+                    <input type="email" class="form-control" id="nrocuenta" style="width: 180px;">
+                    <div class="invalid-feedback">
+                      Por favor, elije su número de cuenta
+                    </div>
+                  </div>
+      
+                  
+                  </div>
+      
+                  <br>
+                  
+                  <div id="Cerrar">
+                  <button class="btn btn-primary" type="button" id="button" class="btn btn-default w3-right" data-dismiss="modal">Cerrar</button>
+                </div>
+                
+                </div>
+              </div>
+      
+            
+            </form>
+          </div>
+          
+        </div>
+        
+      </div>
+      </div>
+     
+    
+    
+    
+  </div>
+
+ 
+ 
+
+ 
+    
+  
+
+</div>
+
+       
+     
+      
+      </div>
+
+   
+
+ 
+    
+
   </main>
+
+
+
+
+
   <footer class="text-muted">
     <div class="container">
       <p class="float-end">
@@ -60,6 +353,11 @@
       <div></div>
     </div>
   </div>
+
+ 
+  
+
+
   <script src="js/bootstrap.bundle.min.js"></script>
   <script src="js/init.js"></script>
   <script src="js/cart.js"></script>

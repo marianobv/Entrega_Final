@@ -28,13 +28,13 @@
 
 <body>
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark p-1">
-    <div class="container">
+    <div class="container" id="contenedor">
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
         aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav w-100 justify-content-between">
+        <ul class="navbar-nav w-100 justify-content-between" id="menu_gral">
           <li class="nav-item">
             <a class="nav-link" href="index.html">Inicio</a>
           </li>
@@ -44,17 +44,115 @@
           <li class="nav-item">
             <a class="nav-link" href="sell.html">Vender</a>
           </li>
-          <li class="nav-item">
+          <li>
+            <div class="nav-link"></div>
+           <div class="dropdown">
+              <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+             <label id="menu_user_2"></label>
+              </button>
+               <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                <li><a class="dropdown-item" href="cart.html">Mi Carrito</a></li>
+                <li><a class="dropdown-item" href="my-profile.html">Mi Perfil</a></li>
+                <li><a class="dropdown-item" href="index.html">Cerrar Sesión</a></li>
+              </ul>
+            </div>
           </li>
         </ul>
       </div>
     </div>
   </nav>
   <main>
-    <div class="container">
-      <div class="alert alert-danger text-center" role="alert">
+    
+    <div class="container" id="container_profile">
+      <!-- <div class="alert alert-danger text-center" role="alert">
         <h4 class="alert-heading">Funcionalidad en desarrollo</h4>
+      </div> -->
+      <br>
+      <br>
+      <div id="profile_title">
+      <h3>Perfil</h3>
+      <img src="descarga.jpg" alt="profile_photo" class="img-thumbnail" width="100px" id="profile_photo">
       </div>
+      <br>
+      <br>
+      
+      <form id="main_form">
+      
+      <table>
+
+      <tr>
+        <th></th>
+        <th></th>
+      </tr>
+
+      <tr>
+      <td><label>Primer Nombre*</label></td>
+      <td><label>Segundo Nombre</label></td>
+      </tr>
+
+      <tr>
+      <td><input id="first_name" class="input_form" size="40"> 
+      <div class="invalid-feedback"> Por favor, elije su nombre</div>
+      <div class="valid-feedback">Nombre seleccionado correctamente</div>
+      </td>
+      <td><input id="second_name" class="input_form" size="40"></td>
+      </tr>
+
+      <tr>
+      <td><label>Primer Apellido*</label></td>
+      <td><label>Segundo Apellido</label></td>
+      </tr>
+
+      <tr>
+      <td><input id="first_surname" class="input_form" size="40"> 
+      <div class="invalid-feedback">Por favor, elije su apellido</div>
+      <div class="valid-feedback">Apellido seleccionado correctamente</div>
+      </td>
+      <td><input id="second_surname" class="input_form" size="40"></td>
+      </tr>
+
+      <tr>
+      <td><label>E-mail</label></td>
+      <td><label>Imagen de Perfil</label></td>
+      </tr>
+
+      <tr>
+      <td><input id="email_profile" class="input_form" size="40"> 
+      <div class="invalid-feedback">Por favor, elije su email</div>
+      <div class="valid-feedback">Email seleccionado correctamente</div>
+      </td>
+
+      <td>
+      <label for="myfile">Select a file:</label>
+      <input type="file" id="myfile">
+
+      
+      </td>
+      </tr>
+
+      <tr>
+        <td>Teléfono de Contacto*</td>
+        <td></td>
+      </tr>
+
+      <tr>
+      <td><input id="contact_number" class="input_form" size="40"></td>
+      <td></td>
+      </tr>
+
+      </table>
+      <br>
+
+      <button id="save_changes" type="button">Guardar cambios</button>
+
+      <div id="success_changes"></div>
+      
+      </form>
+      
+      
+
+
+
     </div>
   </main>
   <footer class="text-muted">

@@ -40,4 +40,15 @@ let getJSONData = function(url){
     });
 }
 
+function paste_ls(){
+let user_class_init = document.getElementsByClassName("user_class");
+let get_ls_init = localStorage.getItem("LoginID");
+console.log(get_ls_init)
+user_class_init.innerHTML += get_ls_init
+}
+
+paste_ls();
+
+
+
 

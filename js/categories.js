@@ -91,6 +91,7 @@ document.addEventListener("DOMContentLoaded", function(e){
     getJSONData(CATEGORIES_URL).then(function(resultObj){
         if (resultObj.status === "ok"){
             currentCategoriesArray = resultObj.data
+            console.log(currentCategoriesArray)
             showCategoriesList()
             //sortAndShowCategories(ORDER_ASC_BY_NAME, resultObj.data);
         }
@@ -141,3 +142,10 @@ document.addEventListener("DOMContentLoaded", function(e){
         showCategoriesList();
     });
 });
+
+let var_user_menu = document.getElementById("menu_user_2")
+let get_ls = localStorage.getItem("text");
+console.log(get_ls)
+var_user_menu.innerHTML += get_ls
+
+
